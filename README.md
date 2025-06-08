@@ -1,54 +1,57 @@
+[点击查看中文说明](./README_CN.md)
+
 # CS2 DX11 Hook
 
-本项目为基于 DirectX 11 的 CS2 游戏辅助，集成了 ImGui 图形界面，支持多种游戏功能。
+This project is a DirectX 11-based CS2 game assistant, integrated with an ImGui graphical interface and supporting various in-game features.
 
-## 功能特性
-- DX11 渲染劫持与 ImGui 界面集成
-- 实时绘制敌我方信息（方框、骨骼、射线、血量、距离、武器等）
-- 支持队友与敌人独立绘制选项
-- 自瞄、FOV、后坐力补偿、自动防闪等功能
-- 支持自定义颜色、风格、圆角、粗细等参数
-- 支持中文字体显示
-- 进程信息、基址、坐标等调试信息展示
-- 采用 MinHook 进行 API Hook
+## Features
+- DX11 rendering hook and ImGui interface integration
+- Real-time drawing of player/enemy info (boxes, skeletons, rays, health, distance, weapon, etc.)
+- Separate drawing options for teammates and enemies
+- Aimbot, FOV, recoil compensation, auto anti-flash, and more
+- Customizable colors, styles, corner radius, thickness, etc.
+- Chinese font display support
+- Display of process info, base address, coordinates, and other debugging info
+- Uses MinHook for API hooking
 
-## 目录结构
+## Directory Structure
 ```
 ├── game/
-│   ├── Base.h           # 基础数据结构
-│   ├── Memory_LC.cpp/h  # 内存操作与功能实现
-│   ├── UI.cpp/h         # ImGui 界面与绘制
-│   ├── game.cpp/h       # DX11 Hook 主逻辑
-│   ├── ImGui/           # ImGui 及其 DX11/Win32 后端
-│   ├── MinHook/         # MinHook 源码
-│   └── output/          # 自动生成的偏移/接口等数据
-├── MFC_Hook.sln         # 解决方案文件
+│   ├── Base.h           # Basic data structures
+│   ├── Memory_LC.cpp/h  # Memory operations and features
+│   ├── UI.cpp/h         # ImGui UI and drawing
+│   ├── game.cpp/h       # DX11 hook main logic
+│   ├── ImGui/           # ImGui and its DX11/Win32 backends
+│   ├── MinHook/         # MinHook source code
+│   └── output/          # Auto-generated offsets/interfaces (fetched via [cs2-dumper](https://github.com/a2x/cs2-dumper))
+├── MFC_Hook.sln         # Solution file
 ```
 
-## 依赖环境
+## Dependencies
 - Windows 10/11 x64
 - Visual Studio 2019/2022
 - DirectX 11 SDK
-- ImGui（已集成源码）
-- MinHook（已集成源码）
+- ImGui (source included)
+- MinHook (source included)
 
-## 编译方法
-1. 使用 Visual Studio 打开 `MFC_Hook.sln` 解决方案。
-2. 选择 Release x64 配置。
-3. 编译 `game` 项目，生成 DLL。
+## Build Instructions
+1. Open the `MFC_Hook.sln` solution in Visual Studio.
+2. Select the Release x64 configuration.
+3. Build the `game` project to generate the DLL.
 
-## 使用说明
-1. 编译生成的 DLL 需以注入方式加载到 CS2 游戏进程中。
-2. 注入后会自动 Hook DX11 并弹出 ImGui 界面。
-3. 可通过界面自定义各项功能参数。
-4. 退出可通过界面按钮或卸载 DLL。
+## Usage
+1. Inject the compiled DLL into the CS2 game process.
+2. The DX11 hook and ImGui interface will appear automatically.
+3. Customize features and parameters via the UI.
+4. Exit via the UI button or by unloading the DLL.
 
-> ⚠️ 本项目仅供学习与技术交流，请勿用于非法用途！
+> ⚠️ This project is for learning and technical exchange only. Do not use for illegal purposes!
 
-## 鸣谢
-- [ocornut/imgui](https://github.com/ocornut/imgui) - 图形界面库
-- [TsudaKageyu/minhook](https://github.com/TsudaKageyu/minhook) - API Hook 库
+## Credits
+- [ocornut/imgui](https://github.com/ocornut/imgui) - GUI library
+- [TsudaKageyu/minhook](https://github.com/TsudaKageyu/minhook) - API hook library
+- [a2x/cs2-dumper](https://github.com/a2x/cs2-dumper) - For generating external offsets/interfaces in the output folder
 
 ---
 
-如有问题欢迎提交 Issue 或 PR。
+For questions, please submit an Issue or PR.
