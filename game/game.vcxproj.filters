@@ -27,55 +27,55 @@
     <ClInclude Include="game.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui_impl_dx11.h">
+    <ClInclude Include="Library\ImGui\imgui_impl_dx11.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui_impl_win32.h">
+    <ClInclude Include="Library\ImGui\imgui_impl_win32.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui_internal.h">
+    <ClInclude Include="Library\ImGui\imgui_internal.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imstb_rectpack.h">
+    <ClInclude Include="Library\ImGui\imstb_rectpack.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imstb_textedit.h">
+    <ClInclude Include="Library\ImGui\imstb_textedit.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imstb_truetype.h">
+    <ClInclude Include="Library\ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imconfig.h">
+    <ClInclude Include="Library\ImGui\imconfig.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui.h">
+    <ClInclude Include="Library\ImGui\imgui.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\include\MinHook.h">
+    <ClInclude Include="Library\MinHook\include\MinHook.h">
       <Filter>MinHook</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\hde\hde32.h">
+    <ClInclude Include="Library\MinHook\hde\hde32.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\hde\hde64.h">
+    <ClInclude Include="Library\MinHook\hde\hde64.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\hde\pstdint.h">
+    <ClInclude Include="Library\MinHook\hde\pstdint.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\hde\table32.h">
+    <ClInclude Include="Library\MinHook\hde\table32.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\hde\table64.h">
+    <ClInclude Include="Library\MinHook\hde\table64.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\buffer.h">
+    <ClInclude Include="Library\MinHook\buffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\minhook.h">
+    <ClInclude Include="Library\MinHook\minhook.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook\trampoline.h">
+    <ClInclude Include="Library\MinHook\trampoline.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Memory_LC.h">
@@ -147,6 +147,9 @@
     <ClInclude Include="output\worldrenderer_dll.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\Visuals\Watermark.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -155,43 +158,46 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
+    <ClCompile Include="Library\ImGui\imgui_impl_dx11.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
+    <ClCompile Include="Library\ImGui\imgui_impl_win32.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_tables.cpp">
+    <ClCompile Include="Library\ImGui\imgui_tables.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
+    <ClCompile Include="Library\ImGui\imgui_widgets.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
+    <ClCompile Include="Library\ImGui\imgui.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
+    <ClCompile Include="Library\ImGui\imgui_draw.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="MinHook\hde\hde32.c">
+    <ClCompile Include="Library\MinHook\hde\hde32.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MinHook\hde\hde64.c">
+    <ClCompile Include="Library\MinHook\hde\hde64.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MinHook\buffer.c">
+    <ClCompile Include="Library\MinHook\buffer.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MinHook\hook.c">
+    <ClCompile Include="Library\MinHook\hook.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MinHook\trampoline.c">
+    <ClCompile Include="Library\MinHook\trampoline.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Memory_LC.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="UI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\Visuals\Watermark.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -954,7 +954,7 @@ pub mod cs2_dumper {
                 pub const m_flSFXSOffsetX: usize = 0x1EC; // float32
                 pub const m_flSFXSOffsetY: usize = 0x1F0; // float32
                 pub const m_flSFXSOffsetZ: usize = 0x1F4; // float32
-                pub const m_nDetailCombo: usize = 0x1F8; // DetailCombo_t
+                pub const m_nDetailCombo: usize = 0x1F8; // 
                 pub const m_flSFXSDetailAmount: usize = 0x1FC; // float32
                 pub const m_flSFXSDetailScale: usize = 0x200; // float32
                 pub const m_flSFXSDetailScrollX: usize = 0x204; // float32
@@ -1083,7 +1083,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod C_INIT_StatusEffect {
-                pub const m_nDetail2Combo: usize = 0x1C8; // Detail2Combo_t
+                pub const m_nDetail2Combo: usize = 0x1C8; // 
                 pub const m_flDetail2Rotation: usize = 0x1CC; // float32
                 pub const m_flDetail2Scale: usize = 0x1D0; // float32
                 pub const m_flDetail2BlendFactor: usize = 0x1D4; // float32
@@ -1291,7 +1291,7 @@ pub mod cs2_dumper {
                 pub const m_nCropTextureOverride: usize = 0xF84; // ParticleSequenceCropOverride_t
                 pub const m_vecTexturesInput: usize = 0xF88; // CUtlVector<TextureGroup_t>
                 pub const m_flAnimationRate: usize = 0xFA0; // float32
-                pub const m_nAnimationType: usize = 0xFA4; // AnimationType_t
+                pub const m_nAnimationType: usize = 0xFA4; // 
                 pub const m_bAnimateInFPS: usize = 0xFA8; // bool
                 pub const m_flMotionVectorScaleU: usize = 0xFB0; // CParticleCollectionRendererFloatInput
                 pub const m_flMotionVectorScaleV: usize = 0x1110; // CParticleCollectionRendererFloatInput
@@ -3355,7 +3355,7 @@ pub mod cs2_dumper {
             pub mod ParticlePreviewState_t {
                 pub const m_previewModel: usize = 0x0; // CUtlString
                 pub const m_nModSpecificData: usize = 0x8; // uint32
-                pub const m_groundType: usize = 0xC; // PetGroundType_t
+                pub const m_groundType: usize = 0xC; // 
                 pub const m_sequenceName: usize = 0x10; // CUtlString
                 pub const m_nFireParticleOnSequenceFrame: usize = 0x18; // int32
                 pub const m_hitboxSetName: usize = 0x20; // CUtlString
@@ -3607,7 +3607,7 @@ pub mod cs2_dumper {
             // MGetKV3ClassDefaults
             pub mod C_OP_RenderLights {
                 pub const m_flAnimationRate: usize = 0x218; // float32
-                pub const m_nAnimationType: usize = 0x21C; // AnimationType_t
+                pub const m_nAnimationType: usize = 0x21C; // 
                 pub const m_bAnimateInFPS: usize = 0x220; // bool
                 pub const m_flMinSize: usize = 0x224; // float32
                 pub const m_flMaxSize: usize = 0x228; // float32
@@ -5202,7 +5202,7 @@ pub mod cs2_dumper {
             pub mod C_INIT_RemapNamedModelElementToScalar {
                 pub const m_hModel: usize = 0x1C8; // CStrongHandle<InfoForResourceTypeCModel>
                 pub const m_names: usize = 0x1D0; // CUtlVector<CUtlString>
-                pub const m_values: usize = 0x1E8; // 
+                pub const m_values: usize = 0x1E8; // CUtlVector<float32>
                 pub const m_nFieldInput: usize = 0x200; // ParticleAttributeIndex_t
                 pub const m_nFieldOutput: usize = 0x204; // ParticleAttributeIndex_t
                 pub const m_nSetMethod: usize = 0x208; // ParticleSetMethod_t
@@ -6232,7 +6232,7 @@ pub mod cs2_dumper {
                 pub const m_bForceDrawInterlevedWithSiblings: usize = 0x1DCF; // bool
                 pub const m_bDoNotDrawInParticlePass: usize = 0x1DD0; // bool
                 pub const m_bAllowApproximateTransforms: usize = 0x1DD1; // bool
-                pub const m_szRenderAttribute: usize = 0x1DD2; // 
+                pub const m_szRenderAttribute: usize = 0x1DD2; // char[260]
                 pub const m_flRadiusScale: usize = 0x1ED8; // CParticleCollectionFloatInput
                 pub const m_flAlphaScale: usize = 0x2038; // CParticleCollectionFloatInput
                 pub const m_flRollScale: usize = 0x2198; // CParticleCollectionFloatInput
@@ -6516,7 +6516,7 @@ pub mod cs2_dumper {
                 pub const m_flLightingDirectionality: usize = 0x3490; // CParticleCollectionRendererFloatInput
                 pub const m_bParticleShadows: usize = 0x35F0; // bool
                 pub const m_flShadowDensity: usize = 0x35F4; // float32
-                pub const m_replicationParameters: usize = 0x35F8; // CReplicationParameters
+                pub const m_replicationParameters: usize = 0x35F8; // 
             }
             // Parent: CParticleFunctionOperator
             // Field count: 12

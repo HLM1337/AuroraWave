@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: pulse_system.dll
@@ -614,7 +614,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class PulseGraphExecutionHistoryNodeDesc_t {
-            public const nint strCellDesc = 0x0; // CBufferString
+            public const nint strCellDesc = 0x0; // 
             public const nint strBindingName = 0x10; // CUtlSymbolLarge
         }
         // Parent: CPulse_ResumePoint
@@ -666,7 +666,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class PulseGraphExecutionHistoryEntry_t {
-            public const nint nCursorID = 0x0; // PulseCursorID_t
+            public const nint nCursorID = 0x0; // 
             public const nint nEditorID = 0x4; // PulseDocNodeID_t
             public const nint flExecTime = 0x8; // float32
             public const nint unFlags = 0xC; // uint32
@@ -811,7 +811,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class PulseNodeDynamicOutflows_t__DynamicOutflow_t {
-            public const nint m_OutflowID = 0x0; // CGlobalSymbol
+            public const nint m_OutflowID = 0x0; // 
             public const nint m_Connection = 0x8; // CPulse_OutflowConnection
         }
         // Parent: CPulseCell_BaseFlow
@@ -851,8 +851,8 @@ namespace CS2Dumper.Schemas {
         // MGetKV3ClassDefaults
         public static class CPulse_DomainValue {
             public const nint m_nType = 0x0; // PulseDomainValueType_t
-            public const nint m_Value = 0x8; // CGlobalSymbol
-            public const nint m_ExpectedRuntimeType = 0x10; // CGlobalSymbol
+            public const nint m_Value = 0x8; // 
+            public const nint m_ExpectedRuntimeType = 0x10; // 
         }
         // Parent: CPulseCell_BaseFlow
         // Field count: 0
@@ -976,7 +976,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_hBlackboardResource = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
             public const nint m_BlackboardResource = 0xE0; // CUtlSymbolLarge
             public const nint m_nNodeID = 0xE8; // PulseDocNodeID_t
-            public const nint m_NodeName = 0xF0; // CGlobalSymbol
+            public const nint m_NodeName = 0xF0; // 
         }
         // Parent: None
         // Field count: 1

@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -114,7 +114,7 @@ pub mod cs2_dumper {
             // Parent: None
             // Field count: 1
             pub mod CNetworkVarChainer {
-                pub const m_PathIndex: usize = 0x20; // ChangeAccessorFieldPathIndex_t
+                pub const m_PathIndex: usize = 0x20; // 
             }
             // Parent: EventSimulate_t
             // Field count: 0

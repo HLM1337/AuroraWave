@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: particles.dll
@@ -875,7 +875,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flSFXSOffsetX = 0x1EC; // float32
             public const nint m_flSFXSOffsetY = 0x1F0; // float32
             public const nint m_flSFXSOffsetZ = 0x1F4; // float32
-            public const nint m_nDetailCombo = 0x1F8; // DetailCombo_t
+            public const nint m_nDetailCombo = 0x1F8; // 
             public const nint m_flSFXSDetailAmount = 0x1FC; // float32
             public const nint m_flSFXSDetailScale = 0x200; // float32
             public const nint m_flSFXSDetailScrollX = 0x204; // float32
@@ -1004,7 +1004,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class C_INIT_StatusEffect {
-            public const nint m_nDetail2Combo = 0x1C8; // Detail2Combo_t
+            public const nint m_nDetail2Combo = 0x1C8; // 
             public const nint m_flDetail2Rotation = 0x1CC; // float32
             public const nint m_flDetail2Scale = 0x1D0; // float32
             public const nint m_flDetail2BlendFactor = 0x1D4; // float32
@@ -1212,7 +1212,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_nCropTextureOverride = 0xF84; // ParticleSequenceCropOverride_t
             public const nint m_vecTexturesInput = 0xF88; // CUtlVector<TextureGroup_t>
             public const nint m_flAnimationRate = 0xFA0; // float32
-            public const nint m_nAnimationType = 0xFA4; // AnimationType_t
+            public const nint m_nAnimationType = 0xFA4; // 
             public const nint m_bAnimateInFPS = 0xFA8; // bool
             public const nint m_flMotionVectorScaleU = 0xFB0; // CParticleCollectionRendererFloatInput
             public const nint m_flMotionVectorScaleV = 0x1110; // CParticleCollectionRendererFloatInput
@@ -3276,7 +3276,7 @@ namespace CS2Dumper.Schemas {
         public static class ParticlePreviewState_t {
             public const nint m_previewModel = 0x0; // CUtlString
             public const nint m_nModSpecificData = 0x8; // uint32
-            public const nint m_groundType = 0xC; // PetGroundType_t
+            public const nint m_groundType = 0xC; // 
             public const nint m_sequenceName = 0x10; // CUtlString
             public const nint m_nFireParticleOnSequenceFrame = 0x18; // int32
             public const nint m_hitboxSetName = 0x20; // CUtlString
@@ -3528,7 +3528,7 @@ namespace CS2Dumper.Schemas {
         // MGetKV3ClassDefaults
         public static class C_OP_RenderLights {
             public const nint m_flAnimationRate = 0x218; // float32
-            public const nint m_nAnimationType = 0x21C; // AnimationType_t
+            public const nint m_nAnimationType = 0x21C; // 
             public const nint m_bAnimateInFPS = 0x220; // bool
             public const nint m_flMinSize = 0x224; // float32
             public const nint m_flMaxSize = 0x228; // float32
@@ -5123,7 +5123,7 @@ namespace CS2Dumper.Schemas {
         public static class C_INIT_RemapNamedModelElementToScalar {
             public const nint m_hModel = 0x1C8; // CStrongHandle<InfoForResourceTypeCModel>
             public const nint m_names = 0x1D0; // CUtlVector<CUtlString>
-            public const nint m_values = 0x1E8; // 
+            public const nint m_values = 0x1E8; // CUtlVector<float32>
             public const nint m_nFieldInput = 0x200; // ParticleAttributeIndex_t
             public const nint m_nFieldOutput = 0x204; // ParticleAttributeIndex_t
             public const nint m_nSetMethod = 0x208; // ParticleSetMethod_t
@@ -6153,7 +6153,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bForceDrawInterlevedWithSiblings = 0x1DCF; // bool
             public const nint m_bDoNotDrawInParticlePass = 0x1DD0; // bool
             public const nint m_bAllowApproximateTransforms = 0x1DD1; // bool
-            public const nint m_szRenderAttribute = 0x1DD2; // 
+            public const nint m_szRenderAttribute = 0x1DD2; // char[260]
             public const nint m_flRadiusScale = 0x1ED8; // CParticleCollectionFloatInput
             public const nint m_flAlphaScale = 0x2038; // CParticleCollectionFloatInput
             public const nint m_flRollScale = 0x2198; // CParticleCollectionFloatInput
@@ -6437,7 +6437,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flLightingDirectionality = 0x3490; // CParticleCollectionRendererFloatInput
             public const nint m_bParticleShadows = 0x35F0; // bool
             public const nint m_flShadowDensity = 0x35F4; // float32
-            public const nint m_replicationParameters = 0x35F8; // CReplicationParameters
+            public const nint m_replicationParameters = 0x35F8; // 
         }
         // Parent: CParticleFunctionOperator
         // Field count: 12

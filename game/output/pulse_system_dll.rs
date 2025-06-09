@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -626,7 +626,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod PulseGraphExecutionHistoryNodeDesc_t {
-                pub const strCellDesc: usize = 0x0; // CBufferString
+                pub const strCellDesc: usize = 0x0; // 
                 pub const strBindingName: usize = 0x10; // CUtlSymbolLarge
             }
             // Parent: CPulse_ResumePoint
@@ -678,7 +678,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod PulseGraphExecutionHistoryEntry_t {
-                pub const nCursorID: usize = 0x0; // PulseCursorID_t
+                pub const nCursorID: usize = 0x0; // 
                 pub const nEditorID: usize = 0x4; // PulseDocNodeID_t
                 pub const flExecTime: usize = 0x8; // float32
                 pub const unFlags: usize = 0xC; // uint32
@@ -823,7 +823,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod PulseNodeDynamicOutflows_t__DynamicOutflow_t {
-                pub const m_OutflowID: usize = 0x0; // CGlobalSymbol
+                pub const m_OutflowID: usize = 0x0; // 
                 pub const m_Connection: usize = 0x8; // CPulse_OutflowConnection
             }
             // Parent: CPulseCell_BaseFlow
@@ -863,8 +863,8 @@ pub mod cs2_dumper {
             // MGetKV3ClassDefaults
             pub mod CPulse_DomainValue {
                 pub const m_nType: usize = 0x0; // PulseDomainValueType_t
-                pub const m_Value: usize = 0x8; // CGlobalSymbol
-                pub const m_ExpectedRuntimeType: usize = 0x10; // CGlobalSymbol
+                pub const m_Value: usize = 0x8; // 
+                pub const m_ExpectedRuntimeType: usize = 0x10; // 
             }
             // Parent: CPulseCell_BaseFlow
             // Field count: 0
@@ -988,7 +988,7 @@ pub mod cs2_dumper {
                 pub const m_hBlackboardResource: usize = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
                 pub const m_BlackboardResource: usize = 0xE0; // CUtlSymbolLarge
                 pub const m_nNodeID: usize = 0xE8; // PulseDocNodeID_t
-                pub const m_NodeName: usize = 0xF0; // CGlobalSymbol
+                pub const m_NodeName: usize = 0xF0; // 
             }
             // Parent: None
             // Field count: 1

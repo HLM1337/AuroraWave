@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 #pragma once
 
@@ -880,7 +880,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flSFXSOffsetX = 0x1EC; // float32
                 constexpr std::ptrdiff_t m_flSFXSOffsetY = 0x1F0; // float32
                 constexpr std::ptrdiff_t m_flSFXSOffsetZ = 0x1F4; // float32
-                constexpr std::ptrdiff_t m_nDetailCombo = 0x1F8; // DetailCombo_t
+                constexpr std::ptrdiff_t m_nDetailCombo = 0x1F8; // 
                 constexpr std::ptrdiff_t m_flSFXSDetailAmount = 0x1FC; // float32
                 constexpr std::ptrdiff_t m_flSFXSDetailScale = 0x200; // float32
                 constexpr std::ptrdiff_t m_flSFXSDetailScrollX = 0x204; // float32
@@ -1009,7 +1009,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace C_INIT_StatusEffect {
-                constexpr std::ptrdiff_t m_nDetail2Combo = 0x1C8; // Detail2Combo_t
+                constexpr std::ptrdiff_t m_nDetail2Combo = 0x1C8; // 
                 constexpr std::ptrdiff_t m_flDetail2Rotation = 0x1CC; // float32
                 constexpr std::ptrdiff_t m_flDetail2Scale = 0x1D0; // float32
                 constexpr std::ptrdiff_t m_flDetail2BlendFactor = 0x1D4; // float32
@@ -1217,7 +1217,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nCropTextureOverride = 0xF84; // ParticleSequenceCropOverride_t
                 constexpr std::ptrdiff_t m_vecTexturesInput = 0xF88; // CUtlVector<TextureGroup_t>
                 constexpr std::ptrdiff_t m_flAnimationRate = 0xFA0; // float32
-                constexpr std::ptrdiff_t m_nAnimationType = 0xFA4; // AnimationType_t
+                constexpr std::ptrdiff_t m_nAnimationType = 0xFA4; // 
                 constexpr std::ptrdiff_t m_bAnimateInFPS = 0xFA8; // bool
                 constexpr std::ptrdiff_t m_flMotionVectorScaleU = 0xFB0; // CParticleCollectionRendererFloatInput
                 constexpr std::ptrdiff_t m_flMotionVectorScaleV = 0x1110; // CParticleCollectionRendererFloatInput
@@ -3281,7 +3281,7 @@ namespace cs2_dumper {
             namespace ParticlePreviewState_t {
                 constexpr std::ptrdiff_t m_previewModel = 0x0; // CUtlString
                 constexpr std::ptrdiff_t m_nModSpecificData = 0x8; // uint32
-                constexpr std::ptrdiff_t m_groundType = 0xC; // PetGroundType_t
+                constexpr std::ptrdiff_t m_groundType = 0xC; // 
                 constexpr std::ptrdiff_t m_sequenceName = 0x10; // CUtlString
                 constexpr std::ptrdiff_t m_nFireParticleOnSequenceFrame = 0x18; // int32
                 constexpr std::ptrdiff_t m_hitboxSetName = 0x20; // CUtlString
@@ -3533,7 +3533,7 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace C_OP_RenderLights {
                 constexpr std::ptrdiff_t m_flAnimationRate = 0x218; // float32
-                constexpr std::ptrdiff_t m_nAnimationType = 0x21C; // AnimationType_t
+                constexpr std::ptrdiff_t m_nAnimationType = 0x21C; // 
                 constexpr std::ptrdiff_t m_bAnimateInFPS = 0x220; // bool
                 constexpr std::ptrdiff_t m_flMinSize = 0x224; // float32
                 constexpr std::ptrdiff_t m_flMaxSize = 0x228; // float32
@@ -5128,7 +5128,7 @@ namespace cs2_dumper {
             namespace C_INIT_RemapNamedModelElementToScalar {
                 constexpr std::ptrdiff_t m_hModel = 0x1C8; // CStrongHandle<InfoForResourceTypeCModel>
                 constexpr std::ptrdiff_t m_names = 0x1D0; // CUtlVector<CUtlString>
-                constexpr std::ptrdiff_t m_values = 0x1E8; // 
+                constexpr std::ptrdiff_t m_values = 0x1E8; // CUtlVector<float32>
                 constexpr std::ptrdiff_t m_nFieldInput = 0x200; // ParticleAttributeIndex_t
                 constexpr std::ptrdiff_t m_nFieldOutput = 0x204; // ParticleAttributeIndex_t
                 constexpr std::ptrdiff_t m_nSetMethod = 0x208; // ParticleSetMethod_t
@@ -6158,7 +6158,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_bForceDrawInterlevedWithSiblings = 0x1DCF; // bool
                 constexpr std::ptrdiff_t m_bDoNotDrawInParticlePass = 0x1DD0; // bool
                 constexpr std::ptrdiff_t m_bAllowApproximateTransforms = 0x1DD1; // bool
-                constexpr std::ptrdiff_t m_szRenderAttribute = 0x1DD2; // 
+                constexpr std::ptrdiff_t m_szRenderAttribute = 0x1DD2; // char[260]
                 constexpr std::ptrdiff_t m_flRadiusScale = 0x1ED8; // CParticleCollectionFloatInput
                 constexpr std::ptrdiff_t m_flAlphaScale = 0x2038; // CParticleCollectionFloatInput
                 constexpr std::ptrdiff_t m_flRollScale = 0x2198; // CParticleCollectionFloatInput
@@ -6442,7 +6442,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_flLightingDirectionality = 0x3490; // CParticleCollectionRendererFloatInput
                 constexpr std::ptrdiff_t m_bParticleShadows = 0x35F0; // bool
                 constexpr std::ptrdiff_t m_flShadowDensity = 0x35F4; // float32
-                constexpr std::ptrdiff_t m_replicationParameters = 0x35F8; // CReplicationParameters
+                constexpr std::ptrdiff_t m_replicationParameters = 0x35F8; // 
             }
             // Parent: CParticleFunctionOperator
             // Field count: 12

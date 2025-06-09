@@ -1,11 +1,12 @@
 ﻿#include "UI.h"
 #include "base.h"
 #include "game.h"
-#include "ImGui/imgui.h"
+#include "Library/ImGui/imgui.h"
 #include "output/offsets.hpp"
 #include "output/client_dll.hpp"
 #include "output/buttons.hpp"
 #include "Memory_LC.h"
+#include "Cheats/Visuals/Watermark.h"
 #include <algorithm> // 添加algorithm头文件以使用std::min函数
 
 // ImGui绘制函数实现 - 从ImGui_LC.cpp整合而来
@@ -170,7 +171,7 @@ static ImColor box_outline_color = ImColor(0, 0, 0, 255); // 方框描边颜色
 static DWORD64 client = (DWORD64)GetModuleHandleA("client.dll"); // 客户端基址
 static DWORD64 server = (DWORD64)GetModuleHandleA("server.dll"); // 服务器基址
 static DWORD64 engine2 = (DWORD64)GetModuleHandleA("engine2.dll"); // 引擎基址
-static string My_Name = ""; // 自身昵称
+std::string My_Name = ""; // 自身昵称
 static uint32_t My_fFlag = 0; // 自身状态
 static float My_flashDuration = 0.0f; // 自身遭受闪光时间
 static Vector3D My_Pos = { -1.0f, -1.0f, -1.0f }; // 自身坐标
@@ -495,6 +496,8 @@ void ApplyGlowEffect(DWORD64 entity, bool is_teammate, int health) {
     WriteByte(glowaddr + g_ctx.m_bglowing, 1);
 }
 
+static bool watermark = true;
+
 void UI()
 {
     ImGuiIO& io = ImGui::GetIO(); (void)io; // 获取输入输出对象
@@ -564,12 +567,10 @@ void UI()
             }
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("功能"))
+        if (ImGui::BeginTabItem("自瞄"))
         {
             ImGui::Checkbox("自瞄", &is_aim); ImGui::SameLine();
-            ImGui::Checkbox("后坐力补偿", &is_recoil_sub); ImGui::SameLine();
-            ImGui::Checkbox("FOV", &is_fov); ImGui::SameLine();
-            ImGui::Checkbox("自动防闪", &is_enable_flash);
+            ImGui::Checkbox("后坐力补偿", &is_recoil_sub);
             if (is_aim)
             {
                 ImGui::Checkbox("障碍判断", &is_aim_obstacles);
@@ -592,8 +593,29 @@ void UI()
                 ImGui::RadioButton("鼠标左键", &is_aim_key, VK_LBUTTON); ImGui::SameLine();
                 ImGui::RadioButton("鼠标右键", &is_aim_key, VK_RBUTTON);
             }
+            ImGui::EndTabItem();
+        }
+        // 新增视觉设置TabItem
+        if (ImGui::BeginTabItem("功能"))
+        {
+            ImGui::Checkbox("FOV修改", &is_fov);
             if (is_fov)
                 ImGui::SliderFloat("FOV", &fov, 60.0f, 120.0f);
+            ImGui::Checkbox("屏蔽闪光", &is_enable_flash);
+            // --- 水印功能 ---
+            ImGui::Separator();
+            ImGui::Text("水印");
+            ImGui::Checkbox("Show Watermark", &watermark);
+            static const char* watermarkLocations[] = { "Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right", "Custom" };
+            int comboLocation = Visuals::g_watermark.m_settings.m_watermarkLocation;
+            if (comboLocation < -1 || comboLocation > 3) comboLocation = 1;
+            int comboIndex = (comboLocation == -1) ? 4 : comboLocation;
+            if (ImGui::Combo("Watermark Position", &comboIndex, watermarkLocations, IM_ARRAYSIZE(watermarkLocations))) {
+                Visuals::g_watermark.m_settings.m_watermarkLocation = (comboIndex == 4) ? -1 : comboIndex;
+            }
+            ImGui::Checkbox("Show Nickname", &Visuals::g_watermark.m_settings.m_watermarkShowNickname);
+            ImGui::Checkbox("Show Time", &Visuals::g_watermark.m_settings.m_watermarkShowTime);
+            ImGui::Checkbox("Show FPS", &Visuals::g_watermark.m_settings.m_watermarkShowFPS);
             ImGui::EndTabItem();
         }
         if (ImGui::BeginTabItem("设置区域"))
@@ -688,8 +710,6 @@ void UI()
 
     ImGui::Text("Framerate：%.1f FPS", io.Framerate);
     ImGui::End();
-
-    DrawTexts(0, 0, "CS2_Hook", text_color, font, 20.0, text_outline_color, text_outline_thickness); // 绘制文本
 
     aim_max = aim_max_range; // 重置瞄准最大距离为用户设置值
     Aim_Address = 0; // 重置瞄准地址
@@ -1026,4 +1046,8 @@ void UI()
     }
     if (!is_fov && is_fov_thread_running) // 停止FOV修改线程
         is_fov_thread_running = false;
+
+    if (watermark) {
+        Visuals::g_watermark.ShowWatermark();
+    }
 }

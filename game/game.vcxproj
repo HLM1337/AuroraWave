@@ -72,7 +72,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>game</TargetName>
+    <TargetName>AuroraWave</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>game</TargetName>
@@ -133,7 +133,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>d3d11.lib;$(ProjectDir)MinHook\lib\libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;$(ProjectDir)Library\MinHook\lib\libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -160,25 +160,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="Cheats\Visuals\Watermark.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="ImGui\imconfig.h" />
-    <ClInclude Include="ImGui\imgui.h" />
-    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
-    <ClInclude Include="ImGui\imgui_impl_win32.h" />
-    <ClInclude Include="ImGui\imgui_internal.h" />
-    <ClInclude Include="ImGui\imstb_rectpack.h" />
-    <ClInclude Include="ImGui\imstb_textedit.h" />
-    <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Library\ImGui\imconfig.h" />
+    <ClInclude Include="Library\ImGui\imgui.h" />
+    <ClInclude Include="Library\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Library\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Library\ImGui\imgui_internal.h" />
+    <ClInclude Include="Library\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Library\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Library\ImGui\imstb_truetype.h" />
     <ClInclude Include="Memory_LC.h" />
-    <ClInclude Include="MinHook\buffer.h" />
-    <ClInclude Include="MinHook\hde\hde32.h" />
-    <ClInclude Include="MinHook\hde\hde64.h" />
-    <ClInclude Include="MinHook\hde\pstdint.h" />
-    <ClInclude Include="MinHook\hde\table32.h" />
-    <ClInclude Include="MinHook\hde\table64.h" />
-    <ClInclude Include="MinHook\include\MinHook.h" />
-    <ClInclude Include="MinHook\minhook.h" />
-    <ClInclude Include="MinHook\trampoline.h" />
+    <ClInclude Include="Library\MinHook\buffer.h" />
+    <ClInclude Include="Library\MinHook\hde\hde32.h" />
+    <ClInclude Include="Library\MinHook\hde\hde64.h" />
+    <ClInclude Include="Library\MinHook\hde\pstdint.h" />
+    <ClInclude Include="Library\MinHook\hde\table32.h" />
+    <ClInclude Include="Library\MinHook\hde\table64.h" />
+    <ClInclude Include="Library\MinHook\include\MinHook.h" />
+    <ClInclude Include="Library\MinHook\minhook.h" />
+    <ClInclude Include="Library\MinHook\trampoline.h" />
     <ClInclude Include="output\animationsystem_dll.hpp" />
     <ClInclude Include="output\buttons.hpp" />
     <ClInclude Include="output\client_dll.hpp" />
@@ -202,20 +203,21 @@
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cheats\Visuals\Watermark.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="ImGui\imgui.cpp" />
-    <ClCompile Include="ImGui\imgui_draw.cpp" />
-    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="ImGui\imgui_tables.cpp" />
-    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Library\ImGui\imgui.cpp" />
+    <ClCompile Include="Library\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Library\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Library\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Library\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Library\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Memory_LC.cpp" />
-    <ClCompile Include="MinHook\buffer.c" />
-    <ClCompile Include="MinHook\hde\hde32.c" />
-    <ClCompile Include="MinHook\hde\hde64.c" />
-    <ClCompile Include="MinHook\hook.c" />
-    <ClCompile Include="MinHook\trampoline.c" />
+    <ClCompile Include="Library\MinHook\buffer.c" />
+    <ClCompile Include="Library\MinHook\hde\hde32.c" />
+    <ClCompile Include="Library\MinHook\hde\hde64.c" />
+    <ClCompile Include="Library\MinHook\hook.c" />
+    <ClCompile Include="Library\MinHook\trampoline.c" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

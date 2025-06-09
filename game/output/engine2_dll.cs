@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: engine2.dll
@@ -107,7 +107,7 @@ namespace CS2Dumper.Schemas {
         // Parent: None
         // Field count: 1
         public static class CNetworkVarChainer {
-            public const nint m_PathIndex = 0x20; // ChangeAccessorFieldPathIndex_t
+            public const nint m_PathIndex = 0x20; // 
         }
         // Parent: EventSimulate_t
         // Field count: 0

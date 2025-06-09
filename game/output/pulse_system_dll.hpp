@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-06-08 18:40:56.972351200 UTC
+// 2025-05-31 22:21:54.904768100 UTC
 
 #pragma once
 
@@ -619,7 +619,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace PulseGraphExecutionHistoryNodeDesc_t {
-                constexpr std::ptrdiff_t strCellDesc = 0x0; // CBufferString
+                constexpr std::ptrdiff_t strCellDesc = 0x0; // 
                 constexpr std::ptrdiff_t strBindingName = 0x10; // CUtlSymbolLarge
             }
             // Parent: CPulse_ResumePoint
@@ -671,7 +671,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace PulseGraphExecutionHistoryEntry_t {
-                constexpr std::ptrdiff_t nCursorID = 0x0; // PulseCursorID_t
+                constexpr std::ptrdiff_t nCursorID = 0x0; // 
                 constexpr std::ptrdiff_t nEditorID = 0x4; // PulseDocNodeID_t
                 constexpr std::ptrdiff_t flExecTime = 0x8; // float32
                 constexpr std::ptrdiff_t unFlags = 0xC; // uint32
@@ -816,7 +816,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace PulseNodeDynamicOutflows_t__DynamicOutflow_t {
-                constexpr std::ptrdiff_t m_OutflowID = 0x0; // CGlobalSymbol
+                constexpr std::ptrdiff_t m_OutflowID = 0x0; // 
                 constexpr std::ptrdiff_t m_Connection = 0x8; // CPulse_OutflowConnection
             }
             // Parent: CPulseCell_BaseFlow
@@ -856,8 +856,8 @@ namespace cs2_dumper {
             // MGetKV3ClassDefaults
             namespace CPulse_DomainValue {
                 constexpr std::ptrdiff_t m_nType = 0x0; // PulseDomainValueType_t
-                constexpr std::ptrdiff_t m_Value = 0x8; // CGlobalSymbol
-                constexpr std::ptrdiff_t m_ExpectedRuntimeType = 0x10; // CGlobalSymbol
+                constexpr std::ptrdiff_t m_Value = 0x8; // 
+                constexpr std::ptrdiff_t m_ExpectedRuntimeType = 0x10; // 
             }
             // Parent: CPulseCell_BaseFlow
             // Field count: 0
@@ -981,7 +981,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_hBlackboardResource = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
                 constexpr std::ptrdiff_t m_BlackboardResource = 0xE0; // CUtlSymbolLarge
                 constexpr std::ptrdiff_t m_nNodeID = 0xE8; // PulseDocNodeID_t
-                constexpr std::ptrdiff_t m_NodeName = 0xF0; // CGlobalSymbol
+                constexpr std::ptrdiff_t m_NodeName = 0xF0; // 
             }
             // Parent: None
             // Field count: 1
