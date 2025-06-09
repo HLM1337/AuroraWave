@@ -1,4 +1,4 @@
-# CS2 DX11 Hook
+# AuroraWave
 
 本项目为基于 DirectX 11 的 CS2 游戏辅助，集成了 ImGui 图形界面，支持多种游戏功能。
 

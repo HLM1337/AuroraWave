@@ -1,6 +1,6 @@
 [点击查看中文说明](./README_CN.md)
 
-# CS2 DX11 Hook
+# AuroraWave
 
 This project is a DirectX 11-based CS2 game assistant, integrated with an ImGui graphical interface and supporting various in-game features.
 
