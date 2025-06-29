@@ -160,7 +160,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="Cheats\Visuals\Glow.h" />
     <ClInclude Include="Cheats\Visuals\Watermark.h" />
+    <ClInclude Include="Cheats\Visuals\SniperCrosshair.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Library\ImGui\imconfig.h" />
     <ClInclude Include="Library\ImGui\imgui.h" />
@@ -203,7 +205,9 @@
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cheats\Visuals\Glow.cpp" />
     <ClCompile Include="Cheats\Visuals\Watermark.cpp" />
+    <ClCompile Include="Cheats\Visuals\SniperCrosshair.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Library\ImGui\imgui.cpp" />

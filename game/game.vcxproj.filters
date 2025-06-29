@@ -150,6 +150,12 @@
     <ClInclude Include="Cheats\Visuals\Watermark.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\Visuals\Glow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\Visuals\SniperCrosshair.h">
+      <Filter>Header Files\Cheats\Visuals</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -198,7 +204,13 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\Visuals\Watermark.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Source Files\Cheats\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\Visuals\Glow.cpp">
+      <Filter>Source Files\Cheats\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\Visuals\SniperCrosshair.cpp">
+      <Filter>Source Files\Cheats\Visuals</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

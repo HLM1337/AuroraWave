@@ -7,6 +7,8 @@
 #include "output/buttons.hpp"
 #include "Memory_LC.h"
 #include "Cheats/Visuals/Watermark.h"
+#include "Cheats/Visuals/Glow.h"
+#include "Cheats/Visuals/SniperCrosshair.h"
 #include <algorithm> // 添加algorithm头文件以使用std::min函数
 
 // ImGui绘制函数实现 - 从ImGui_LC.cpp整合而来
@@ -206,28 +208,34 @@ const unsigned int MINUS_ATTACK = 256;// -attack
 static float aimSmoothX = 1.0f; // 自瞄平滑X
 static float aimSmoothY = 1.0f; // 自瞄平滑Y
 
-// 新增：边缘发光变量
-static bool is_glow_enemy = false;    // 敌人发光开关
-static bool is_glow_teammate = false; // 队友发光开关
-static ImVec4 g_glowcolor = ImVec4(1.0f, 0.0f, 0.0f, 0.7f); // 敌人发光颜色 (RGBA)
-static ImVec4 g_glowcolor_teammate = ImVec4(0.0f, 1.0f, 0.0f, 0.7f); // 队友发光颜色 (RGBA)
+// 边缘发光功能已移至Visuals::Glow模块
 
 // 全局上下文结构体，存储偏移和其他游戏信息
 struct GameContext {
-    uintptr_t m_glow;                       // 边缘发光基址偏移
-    uintptr_t m_glowcolor;                  // 边缘发光颜色偏移
-    uintptr_t m_bglowing;                   // 边缘发光状态偏移
-    uintptr_t m_bEligibleForScreenHighlight; // 边缘发光屏幕高亮状态偏移
+    // 边缘发光偏移已移至Visuals::Glow模块
 } g_ctx;
 
 // 全局变量集合，存储设置和状态
 struct GlobalVars {
-    ImVec4 glowcolor;                       // 边缘发光颜色
+    // 边缘发光颜色已移至Visuals::Glow模块
 } g_vars;
 
 static void Unload() // 卸载 DLL
 {
     UnloadHook();
+}
+
+static bool IsKnife(short weapon_id) // 判断武器是否为刀类武器
+{
+    // 直接判断基础刀武器ID
+    if (weapon_id == 41 || weapon_id == 42 || weapon_id == 59 || weapon_id == 74) {
+        return true;
+    }
+    // 判断特殊刀具ID (通常500以上为各种特殊刀具)
+    if (weapon_id >= 500 && weapon_id <= 526) {
+        return true;
+    }
+    return false;
 }
 
 static string GetWeaponName(short weapon_id) // 获取武器名称
@@ -451,50 +459,7 @@ static void FovThreadFunction() // FOV修改线程
     }
 }
 
-// 实现边缘发光功能
-void ApplyGlowEffect(DWORD64 entity, bool is_teammate, int health) {
-    // 检查实体是否有效、是否活着
-    if (entity == 0 || health <= 0) return;
-    
-    // 根据是否为队友选择对应的发光设置
-    if (is_teammate) {
-        // 如果是队友但队友发光关闭，则直接返回
-        if (!is_glow_teammate) return;
-        g_vars.glowcolor = g_glowcolor_teammate; // 使用队友发光颜色
-    } else {
-        // 如果是敌人但敌人发光关闭，则直接返回
-        if (!is_glow_enemy) return;
-        g_vars.glowcolor = g_glowcolor; // 使用敌人发光颜色
-    }
-    
-    // 获取边缘发光地址 (Glow属性位于C_BaseModelEntity::m_Glow)
-    const uintptr_t glowaddr = entity + cs2_dumper::schemas::client_dll::C_BaseModelEntity::m_Glow;
-    // 新增：判断glowaddr是否有效，防止未初始化时写入导致崩溃
-    if (glowaddr < 0x10000 || ReadLong(glowaddr) == 0) return;
-    
-    // 将颜色转换为DWORD格式 (ABGR)
-    const ImVec4& g_color = g_vars.glowcolor;
-    const DWORD g_c_stack = (DWORD(g_color.w * 255) << 24) | (DWORD(g_color.z * 255) << 16) | (DWORD(g_color.y * 255) << 8) | DWORD(g_color.x * 255);
-    
-    // 初始化偏移量（仅初始化一次）
-    static bool offsetsInitialized = false;
-    if (!offsetsInitialized) {
-        g_ctx.m_glow = cs2_dumper::schemas::client_dll::C_BaseModelEntity::m_Glow;
-        g_ctx.m_glowcolor = cs2_dumper::schemas::client_dll::CGlowProperty::m_glowColorOverride;
-        g_ctx.m_bEligibleForScreenHighlight = cs2_dumper::schemas::client_dll::CGlowProperty::m_bEligibleForScreenHighlight;
-        g_ctx.m_bglowing = cs2_dumper::schemas::client_dll::CGlowProperty::m_bGlowing;
-        offsetsInitialized = true;
-    }
-    
-    // 写入边缘发光颜色
-    WriteLong(glowaddr + g_ctx.m_glowcolor, g_c_stack);
-    
-    // 启用边缘发光高亮
-    WriteByte(glowaddr + g_ctx.m_bEligibleForScreenHighlight, 1);
-    
-    // 启用边缘发光
-    WriteByte(glowaddr + g_ctx.m_bglowing, 1);
-}
+// 边缘发光功能已移至Visuals::Glow模块
 
 static bool watermark = true;
 
@@ -528,15 +493,10 @@ void UI()
                     ImGui::Checkbox("绘制手持", &is_draw_weapon); ImGui::SameLine();
                     ImGui::Checkbox("掩体判断", &is_draw_obstacles); ImGui::SameLine();
                     ImGui::Checkbox("自瞄范围线", &is_draw_aim_range);
-                    ImGui::Checkbox("生命值条", &is_draw_healthbar); ImGui::SameLine();
-                    ImGui::Checkbox("敌人发光", &is_glow_enemy);
-                    if (is_glow_enemy)
-                    {
-                        ImGui::SameLine();
-                        ImGui::ColorEdit4("##敌人发光颜色", (float*)&g_glowcolor, ImGuiColorEditFlags_NoInputs);
-                        ImGui::SameLine();
-                        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "(发光功能可能导致封禁!)");
-                    }
+                    ImGui::Checkbox("生命值条", &is_draw_healthbar);
+                    
+                    // 调用Glow模块的UI渲染
+                    Visuals::g_glow.RenderUI();
                     ImGui::TreePop();
                 }
                 
@@ -553,14 +513,7 @@ void UI()
                         ImGui::Checkbox("绘制手持##Friend", &is_draw_friend_weapon); ImGui::SameLine();
                         ImGui::Checkbox("掩体判断##Friend", &is_draw_friend_obstacles); ImGui::SameLine();
                         ImGui::Checkbox("生命值条##Friend", &is_draw_friend_healthbar);
-                        ImGui::Checkbox("队友发光##Friend", &is_glow_teammate);
-                        if (is_glow_teammate)
-                        {
-                            ImGui::SameLine();
-                            ImGui::ColorEdit4("##队友发光颜色", (float*)&g_glowcolor_teammate, ImGuiColorEditFlags_NoInputs);
-                            ImGui::SameLine();
-                            ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "(发光功能可能导致封禁!)");
-                        }
+                        // 队友发光已整合到Glow模块的RenderUI中
                     }
                     ImGui::TreePop();
                 }
@@ -602,6 +555,11 @@ void UI()
             if (is_fov)
                 ImGui::SliderFloat("FOV", &fov, 60.0f, 120.0f);
             ImGui::Checkbox("屏蔽闪光", &is_enable_flash);
+            // 删除 ImGui::Checkbox("狙击枪十字准星", &is_sniper_crosshair);
+            
+            // 添加狙击枪十字准星模块的UI渲染
+            Visuals::g_sniperCrosshair.RenderUI();
+            
             // --- 水印功能 ---
             ImGui::Separator();
             ImGui::Text("水印");
@@ -758,8 +716,8 @@ void UI()
             int Enemy_Health = ReadInt(Enemy_Address + cs2_dumper::schemas::client_dll::C_BaseEntity::m_iHealth);
             if (Enemy_Health <= 0)
                 continue;
-            // 应用边缘发光效果 - 传入是否为队友和生命值参数
-            ApplyGlowEffect(Enemy_Address, is_teammate, Enemy_Health);
+                            // 应用边缘发光效果 - 使用Glow模块
+                Visuals::g_glow.ApplyGlowEffect(Enemy_Address, is_teammate, Enemy_Health);
 
             // 判断掩体状态和颜色设置
             bool is_behind_cover = false;
@@ -856,15 +814,17 @@ void UI()
                                     text_color, font, text_cx, text_outline_color, text_outline_thickness);
                         }
                         
-                        // 绘制玩家名称（安全地在方框上方显示）
+                        // 绘制玩家名称（精确居中对齐在方框上方）
                         if (should_draw_name && !Player_Name.empty()) {
                             try {
                                 // 增加安全检查，确保font不为nullptr且有效
                                 if (font && font->IsLoaded()) {
-                                    // 使用更安全的方式计算文本宽度
-                                    float name_width = Player_Name.length() * (text_cx * 0.5f); // 估算宽度
-                                    float name_x = Enemy_Box.x + (Enemy_Box.width / 2.0f) - (name_width / 2.0f);
-                                    float name_y = Enemy_Box.y - text_cx - 5.0f;
+                                    // 使用ImGui的字体测量功能精确计算文本宽度
+                                    ImVec2 text_size = font->CalcTextSizeA(text_cx, FLT_MAX, 0.0f, Player_Name.c_str());
+                                    
+                                    // 计算居中位置
+                                    float name_x = Enemy_Box.x + (Enemy_Box.width / 2.0f) - (text_size.x / 2.0f);
+                                    float name_y = Enemy_Box.y - text_size.y - 5.0f;
                                     
                                     // 绘制带描边的文本
                                     DrawTexts(name_x, name_y, Player_Name.c_str(), 
@@ -979,9 +939,20 @@ void UI()
 
     if (is_aim) // 自瞄实现
     {
+        // 获取当前本地玩家持有的武器
+        DWORD64 My_Current_Weapon = ReadLong(My_Address + cs2_dumper::schemas::client_dll::C_CSPlayerPawnBase::m_pClippingWeapon);
+        bool is_holding_knife = false;
+        
+        // 检查武器是否有效，然后判断是否为刀
+        if (My_Current_Weapon) {
+            short My_Current_Weapon_Index = ReadShort(My_Current_Weapon + cs2_dumper::schemas::client_dll::C_EconEntity::m_AttributeManager + cs2_dumper::schemas::client_dll::C_AttributeContainer::m_Item + cs2_dumper::schemas::client_dll::C_EconItemView::m_iItemDefinitionIndex);
+            is_holding_knife = IsKnife(My_Current_Weapon_Index);
+        }
+
         if (is_draw_aim_range) // 绘制自瞄范围
             DrawCircle(g_width / 2.0, g_height / 2.0, aim_max_range, White, 0, Circle_cx);
-        if (Aim_Address)
+        
+        if (Aim_Address && !is_holding_knife) // 只有当不持刀时才进行自瞄
         {
             Vector3D Camera_Pos = {
                     ReadFloat(My_Address + cs2_dumper::schemas::client_dll::C_CSPlayerPawnBase::m_vecLastClipCameraPos + 0x0),
@@ -1050,4 +1021,7 @@ void UI()
     if (watermark) {
         Visuals::g_watermark.ShowWatermark();
     }
+
+    // 调用狙击枪十字准星模块进行绘制，传入屏幕尺寸
+    Visuals::g_sniperCrosshair.DrawCrosshair(My_Address, g_width, g_height);
 }
